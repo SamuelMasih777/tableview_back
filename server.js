@@ -6,7 +6,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const ProductRoutes = require('./route/product.route');
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://table-view-4u.netlify.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+  }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
